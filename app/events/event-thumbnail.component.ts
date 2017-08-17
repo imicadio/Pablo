@@ -19,5 +19,7 @@ import { SlicePipe } from '@angular/common';
 })
 
 export class EventThumbnailCoponent{
+    // wejście event: cokolwiek, bo pobiera z rodzica events
+    //który ma jakąś wartość
     @Input() event:any
 }

@@ -12,12 +12,18 @@ import 'hammerjs';
 import { MaterialModule } from '@angular/material';
 import { EventsListComponent } from './events/events-list.component';
 import { EventThumbnailCoponent } from './events/event-thumbnail.component';
+import { SharedService } from './events/shared/shared.service';
+import { NavbarComponent } from './navbar/navbar.component';
+import { HaeroDetailComponent } from './events/haero-detail/haero-detail.component'
+import { appRoutes } from './routes'
 
 @NgModule({
   declarations: [
     AppComponent,
     EventsListComponent,
-    EventThumbnailCoponent
+    EventThumbnailCoponent,
+    NavbarComponent,
+    HaeroDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -26,9 +32,12 @@ import { EventThumbnailCoponent } from './events/event-thumbnail.component';
     BrowserAnimationsModule,
     MdButtonModule,
     MdCheckboxModule,
-    MaterialModule
+    MaterialModule,
+    RouterModule,
+    RouterModule.forRoot(appRoutes)
+
   ],
-  providers: [],
+  providers: [SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
