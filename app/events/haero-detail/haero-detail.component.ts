@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../shared/shared.service'
+import { ActivatedRoute } from '@angular/router'
 
 @Component({
   selector: 'app-haero-detail',
@@ -9,9 +10,9 @@ import { SharedService } from '../shared/shared.service'
 export class HaeroDetailComponent implements OnInit {
   hero:any
   
-  constructor(private eventService: SharedService) { }
+  constructor(private eventService: SharedService, private route:ActivatedRoute) { }
 
   ngOnInit() {
-    this.hero = this.eventService.getHero(1)
+    this.hero = this.eventService.getHero(+this.route.snapshot.params['id'])
   }
 }

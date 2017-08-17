@@ -1,14 +1,15 @@
 import { Component, Input } from '@angular/core'
 import { SlicePipe } from '@angular/common';
+import { Router } from '@angular/router'
 
 @Component({
     selector: 'event-thumbnail',
     template: `
     <div class="well hoverwell thumbnail">    
-        <h2>{{ event.name }}</h2>
-        <div><p>{{ event?.opis | slice:0:255 }}...</p></div>     
+        <h2>{{ hero.name }}</h2>
+        <div><p>{{ hero?.opis | slice:0:255 }}...</p></div>     
         <br/>
-        <div class="prawy"><button md-button>Czytaj więcej</button></div>
+        <div class="prawy"><button md-button routerLink="/hero/{{hero.id}}">Czytaj więcej</button></div>
         <br/>
     </div>
     `,
@@ -21,5 +22,5 @@ import { SlicePipe } from '@angular/common';
 export class EventThumbnailCoponent{
     // wejście event: cokolwiek, bo pobiera z rodzica events
     //który ma jakąś wartość
-    @Input() event:any
+    @Input() hero:any
 }

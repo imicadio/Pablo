@@ -16,6 +16,7 @@ import { SharedService } from './events/shared/shared.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HaeroDetailComponent } from './events/haero-detail/haero-detail.component'
 import { appRoutes } from './routes'
+import { CreateEventComponent } from './events/create-event.component'
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { appRoutes } from './routes'
     EventsListComponent,
     EventThumbnailCoponent,
     NavbarComponent,
-    HaeroDetailComponent
+    HaeroDetailComponent,
+    CreateEventComponent
   ],
   imports: [
     BrowserModule,
