@@ -16,7 +16,9 @@ import { SharedService } from './events/shared/shared.service';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HaeroDetailComponent } from './events/haero-detail/haero-detail.component'
 import { appRoutes } from './routes'
-import { CreateEventComponent } from './events/create-event.component'
+import { CreateEventComponent } from './events/create-event.component';
+import { ErrorComponent } from './error/error.component'
+import { HeroRouteActivator } from './events/haero-detail/hero-route-activator.service'
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { CreateEventComponent } from './events/create-event.component'
     EventThumbnailCoponent,
     NavbarComponent,
     HaeroDetailComponent,
-    CreateEventComponent
+    CreateEventComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,7 @@ import { CreateEventComponent } from './events/create-event.component'
     RouterModule.forRoot(appRoutes)
 
   ],
-  providers: [SharedService],
+  providers: [SharedService, HeroRouteActivator],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
