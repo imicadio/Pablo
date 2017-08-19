@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from './shared/shared.service'
+import { ActivatedRoute } from '@angular/router'
 
 @Component({
     template: `
@@ -15,14 +16,14 @@ import { SharedService } from './shared/shared.service'
     `})
 
 export class EventsListComponent implements OnInit {
-  // deklaruje zmienną events, pobieram dane z tablicy
+  // deklaruje zmienną heroes, pobieram dane z tablicy
   heroes:any[]
   
   //konstruktor: przypisuje dane eventService
-  constructor(private eventService: SharedService){ }
+  constructor(private eventService: SharedService, private route:ActivatedRoute){ }
   
   // ngOnInit: musi być ponieważ wstrzyknąłem dane ze sharedService, które jest Injectable()
   ngOnInit(){
-    this.heroes = this.eventService.getEvents() 
+    this.heroes = this.route.snapshot.data['heroes'] 
   }
 }

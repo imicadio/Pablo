@@ -19,6 +19,7 @@ import { appRoutes } from './routes'
 import { CreateEventComponent } from './events/create-event.component';
 import { ErrorComponent } from './error/error.component'
 import { HeroRouteActivator } from './events/haero-detail/hero-route-activator.service'
+import { EventListResolver } from './events/event-list-resolve.service'
 
 @NgModule({
   declarations: [
@@ -42,7 +43,18 @@ import { HeroRouteActivator } from './events/haero-detail/hero-route-activator.s
     RouterModule.forRoot(appRoutes)
 
   ],
-  providers: [SharedService, HeroRouteActivator],
+  providers: [
+    SharedService, 
+    HeroRouteActivator, 
+    EventListResolver,
+    { provide: 'canDeactivateCreateHero', useValue: checkDirtyState }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+function checkDirtyState(component: CreateEventComponent){
+  if(component.isDirty)
+    return window.confirm('Na pewno chcesz anulować tworzenie postaci?')
+  return false
+}

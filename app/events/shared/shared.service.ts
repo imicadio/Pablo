@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core'
+import { Subject } from 'rxjs/RX'
 
 @Injectable()
 export class SharedService{
     getEvents(){
-        return HERO
+      let subject = new Subject()
+      setTimeout(() => {subject.next(HERO); subject.complete(); }, 100)
+      return subject
     }
 
     getHero(id:number){
-        return HERO.find(event => event.id === id)
+        return HERO.find(hero => hero.id === id)
       }
 }
 
@@ -54,5 +57,12 @@ const HERO = [
           
           Chwila odwiedzin została jednak wybrana w najgorszym momencie, gdyż kiedy dornijczycy przybyli na skałę, lady Joanna nie żyła. Umarła w czasie porodu, rodząc karłowatego syna Tyriona Lannistera. Tak więc pogłoski o tym, że Tywinowi urodził się potwór doszły do uszu Oberyna i jego siostry, którzy chcieli zobaczyć małego potwora. W tym czasie plany księżnej sypały się w gruzy, a załamany Tywin nawet nie przyjął gości. Oberyn i Elia zostali zaprowadzeni do komnat Tyriona, gdzie zobaczyli, że pogłoski o rzekomym potworze były mocno przesadzone, a Tyrion jest prawie normalnym dzieckiem. Ostatecznie wizyta na skale zakończyła się skandalem, kiedy Tywin zaproponował małżeństwo zamiast swych bliźniaków, Tyriona. Martellowie uznali to za obelgę i opuścili skałę.`,
           imageUrl: 'https://vignette1.wikia.nocookie.net/gameofthrones/images/9/96/Oberyn-Martell-house-martell-37118334-2832-4256.jpg/revision/latest/scale-to-width-down/310?cb=20150815065729' 
+        },
+
+        {
+          id: 6,
+          name: 'Nocny Król',
+          opis: `Nocny Król – członek Nocnej Straży i trzynasty Lord dowódca na Murze, żyjący w Erze Herosów.`,
+          imageUrl: 'https://vignette1.wikia.nocookie.net/gameofthrones/images/2/2d/NightsKingCrop_%28Hardhome%29.PNG/revision/latest/scale-to-width-down/180?cb=20170809124618' 
         }
 ]
