@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core'
 import { SlicePipe } from '@angular/common';
 import { Router } from '@angular/router'
+import { IHero } from './shared/index'
 
 @Component({
     selector: 'event-thumbnail',
@@ -24,5 +25,5 @@ import { Router } from '@angular/router'
 export class EventThumbnailCoponent{
     //wejście event: cokolwiek, bo pobiera z rodzica event-list
     //który ma jakąś wartość
-    @Input() hero:any
+    @Input() hero:IHero
 }

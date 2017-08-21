@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core'
-import { Subject } from 'rxjs/RX'
+import { Subject, Observable } from 'rxjs/RX'
+import { IHero } from './hero.model'
 
 @Injectable()
 export class SharedService{
-    getEvents(){
-      let subject = new Subject()
+    getEvents(): Observable<IHero[]>{
+      let subject = new Subject<IHero[]>()
       setTimeout(() => {subject.next(HERO); subject.complete(); }, 100)
       return subject
     }
 
-    getHero(id:number){
+    getHero(id:number): IHero {
         return HERO.find(hero => hero.id === id)
       }
 }
 
-const HERO = [
+const HERO: IHero[] = [
         {
           id: 1,
           name: 'Jon Snow',
@@ -58,7 +59,6 @@ const HERO = [
           Chwila odwiedzin została jednak wybrana w najgorszym momencie, gdyż kiedy dornijczycy przybyli na skałę, lady Joanna nie żyła. Umarła w czasie porodu, rodząc karłowatego syna Tyriona Lannistera. Tak więc pogłoski o tym, że Tywinowi urodził się potwór doszły do uszu Oberyna i jego siostry, którzy chcieli zobaczyć małego potwora. W tym czasie plany księżnej sypały się w gruzy, a załamany Tywin nawet nie przyjął gości. Oberyn i Elia zostali zaprowadzeni do komnat Tyriona, gdzie zobaczyli, że pogłoski o rzekomym potworze były mocno przesadzone, a Tyrion jest prawie normalnym dzieckiem. Ostatecznie wizyta na skale zakończyła się skandalem, kiedy Tywin zaproponował małżeństwo zamiast swych bliźniaków, Tyriona. Martellowie uznali to za obelgę i opuścili skałę.`,
           imageUrl: 'https://vignette1.wikia.nocookie.net/gameofthrones/images/9/96/Oberyn-Martell-house-martell-37118334-2832-4256.jpg/revision/latest/scale-to-width-down/310?cb=20150815065729' 
         },
-
         {
           id: 6,
           name: 'Nocny Król',

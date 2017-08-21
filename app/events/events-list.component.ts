@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from './shared/shared.service'
 import { ActivatedRoute } from '@angular/router'
+import { IHero } from './shared/index'
 
 @Component({
     template: `
@@ -17,7 +18,7 @@ import { ActivatedRoute } from '@angular/router'
 
 export class EventsListComponent implements OnInit {
   // deklaruje zmienną heroes, pobieram dane z tablicy
-  heroes:any[]
+  heroes:IHero[]
   
   //konstruktor: przypisuje dane eventService
   constructor(private eventService: SharedService, private route:ActivatedRoute){ }

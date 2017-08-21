@@ -1,10 +1,15 @@
 import { Routes } from '@angular/router'
-import { EventsListComponent } from './events/events-list.component';
-import { HaeroDetailComponent } from './events/haero-detail/haero-detail.component';
-import { CreateEventComponent } from './events/create-event.component'
+
+import {
+    EventsListComponent,
+    HaeroDetailComponent,
+    CreateEventComponent,
+    HeroRouteActivator,
+    EventListResolver
+} from './events/index'
+
 import { ErrorComponent } from './error/error.component'
-import { HeroRouteActivator } from './events/haero-detail/hero-route-activator.service'
-import { EventListResolver } from './events/event-list-resolve.service'
+
 
 export const appRoutes:Routes = [
     { path: 'hero/new', component: CreateEventComponent, canDeactivate: ['canDeactivateCreateHero'] },

@@ -6,20 +6,24 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 
+import {
+  EventsListComponent,
+  EventThumbnailCoponent,
+  SharedService,
+  CreateEventComponent,
+  HeroRouteActivator,
+  EventListResolver,
+  HaeroDetailComponent
+} from './events/index'
+
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MdButtonModule, MdCheckboxModule} from '@angular/material';
 import 'hammerjs';
 import { MaterialModule } from '@angular/material';
-import { EventsListComponent } from './events/events-list.component';
-import { EventThumbnailCoponent } from './events/event-thumbnail.component';
-import { SharedService } from './events/shared/shared.service';
 import { NavbarComponent } from './navbar/navbar.component';
-import { HaeroDetailComponent } from './events/haero-detail/haero-detail.component'
 import { appRoutes } from './routes'
-import { CreateEventComponent } from './events/create-event.component';
 import { ErrorComponent } from './error/error.component'
-import { HeroRouteActivator } from './events/haero-detail/hero-route-activator.service'
-import { EventListResolver } from './events/event-list-resolve.service'
+
 
 @NgModule({
   declarations: [
